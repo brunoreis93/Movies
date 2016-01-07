@@ -60,7 +60,8 @@ public class MainActivityFragment extends Fragment {
         if (mMoviesAdapter != null) {
             mMoviesAdapter.clear();
             for (Movie movie : movies) {
-                mMoviesAdapter.add(movie.getTitle());
+                String movieInList = movie.getTitle() + " (" + movie.getVoteAverage() + ")";
+                mMoviesAdapter.add(movieInList);
             }
         }
     }
@@ -97,6 +98,7 @@ public class MainActivityFragment extends Fragment {
                 String overview = movies.get(position).getOverview();
                 String poster = movies.get(position).getPoster();
                 int movieId = movies.get(position).getId();
+                double voteAvg = movies.get(position).getVoteAverage();
                 String releaseDate = movies.get(position).getReleaseDate();
 
                 Intent detailMovie = new Intent(getActivity(), MovieDetail.class);
@@ -107,6 +109,7 @@ public class MainActivityFragment extends Fragment {
                 extras.putString("overview", overview);
                 extras.putString("poster", poster);
                 extras.putInt("movieId", movieId);
+                extras.putDouble("voteAvg", voteAvg);
                 extras.putString("releaseDate", releaseDate);
                 detailMovie.putExtras(extras);
                 startActivity(detailMovie);

@@ -13,6 +13,7 @@ public class Movie {
     private String mPoster;
     private int mId;
     private String mReleaseDate;
+    private double mVoteAverage;
 
     /**
     *Setting attributes of the class
@@ -72,5 +73,13 @@ public class Movie {
 
     public String getReleaseDate(){
         return mReleaseDate;
+    }
+
+    public void setVoteAverage(double voteAverage){
+        this.mVoteAverage = voteAverage;
+    }
+
+    public double getVoteAverage(){
+        return mVoteAverage;
     }
 }

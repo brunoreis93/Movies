@@ -36,6 +36,7 @@ public class FetchMoviesTask extends AsyncTask<Void, Void, ArrayList<Movie>> {
         final String IMDB_TITLE = "title";
         final String IMDB_ID = "id";
         final String IMDB_RELEASE = "release_date";
+        final String IMDB_VOTEAVG = "vote_average";
 
         JSONObject moviesJson = new JSONObject(moviesJsonStr);
         JSONArray movieArray = moviesJson.getJSONArray(IMDB_RESULTS);
@@ -53,6 +54,7 @@ public class FetchMoviesTask extends AsyncTask<Void, Void, ArrayList<Movie>> {
             movie.setPoster(movieObject.getString(IMDB_POSTER));
             movie.setId(movieObject.getInt(IMDB_ID));
             movie.setReleaseDate(movieObject.getString(IMDB_RELEASE));
+            movie.setVoteAverage(movieObject.getDouble(IMDB_VOTEAVG));
 
 
             resultsOfMovies.add(movie);

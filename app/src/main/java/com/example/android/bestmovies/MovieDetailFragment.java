@@ -37,13 +37,15 @@ public class MovieDetailFragment extends Fragment {
             String imageSize = "w342/";
             String imageFile = baseUrlImage + imageSize + poster;
             int movieId = bundle.getInt("movieId");
+            double voteAvg = bundle.getDouble("voteAvg");
             String releaseDate = bundle.getString("releaseDate");
+            String titleTxtView = title + " (" + releaseDate.substring(0, Math.min(releaseDate.length(), 4)) + ")";
 
             TextView titleText = (TextView) rootView.findViewById(R.id.title_text_view);
             TextView overviewText = (TextView) rootView.findViewById(R.id.overview_text_view);
             ImageView postImage = (ImageView) rootView.findViewById(R.id.image_poster);
 
-            titleText.setText(title);
+            titleText.setText(titleTxtView);
             overviewText.setText(overview);
             Picasso.with(getContext()).load(imageFile).into(postImage);
 
