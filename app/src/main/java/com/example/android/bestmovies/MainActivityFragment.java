@@ -1,5 +1,6 @@
 package com.example.android.bestmovies;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
@@ -90,9 +91,25 @@ public class MainActivityFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String test = movies.get(position).getReleaseDate();
-                Toast toast = Toast.makeText(getContext(), test, Toast.LENGTH_SHORT);
-                toast.show();
+                String title = movies.get(position).getTitle();
+                String backdrop = movies.get(position).getBackdrop();
+                String originalTitle = movies.get(position).getOriginalTitle();
+                String overview = movies.get(position).getOverview();
+                String poster = movies.get(position).getPoster();
+                int movieId = movies.get(position).getId();
+                String releaseDate = movies.get(position).getReleaseDate();
+
+                Intent detailMovie = new Intent(getActivity(), MovieDetail.class);
+                Bundle extras = new Bundle();
+                extras.putString("title", title);
+                extras.putString("backdrop", backdrop);
+                extras.putString("originalTitle", originalTitle);
+                extras.putString("overview", overview);
+                extras.putString("poster", poster);
+                extras.putInt("movieId", movieId);
+                extras.putString("releaseDate", releaseDate);
+                detailMovie.putExtras(extras);
+                startActivity(detailMovie);
             }
         });
 

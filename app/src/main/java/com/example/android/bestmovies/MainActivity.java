@@ -23,14 +23,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
     }
 
-    public void onClickRefresh (View view){
-        Log.v("REFRESHBUTTON", "Refresh Button working");
-        FetchMoviesTask fetchMoviesTask = new FetchMoviesTask();
-        MainActivityFragment fragment = (MainActivityFragment) getSupportFragmentManager().findFragmentById(R.id.fragment);
-        fetchMoviesTask.mainActivityFragment = fragment;
-        fetchMoviesTask.execute();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
