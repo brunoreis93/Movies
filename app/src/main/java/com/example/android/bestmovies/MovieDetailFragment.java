@@ -34,7 +34,7 @@ public class MovieDetailFragment extends Fragment {
             String overview = bundle.getString("overview");
             String poster = bundle.getString("poster");
             String baseUrlImage = "http://image.tmdb.org/t/p/";
-            String imageSize = "w342/";
+            String imageSize = "w500/";
             String imageFile = baseUrlImage + imageSize + poster;
             int movieId = bundle.getInt("movieId");
             double voteAvg = bundle.getDouble("voteAvg");

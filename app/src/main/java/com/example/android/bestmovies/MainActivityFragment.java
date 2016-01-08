@@ -24,7 +24,7 @@ import java.util.List;
  */
 public class MainActivityFragment extends Fragment {
 
-    public ArrayAdapter<String> mMoviesAdapter;
+    public MovieAdapter mMoviesAdapter;
 
     public ArrayList<Movie> movies;
 
@@ -60,8 +60,8 @@ public class MainActivityFragment extends Fragment {
         if (mMoviesAdapter != null) {
             mMoviesAdapter.clear();
             for (Movie movie : movies) {
-                String movieInList = movie.getTitle() + " (" + movie.getVoteAverage() + ")";
-                mMoviesAdapter.add(movieInList);
+                //String movieInList = movie.getTitle() + " (" + movie.getVoteAverage() + ")";
+                mMoviesAdapter.add(movie);
             }
         }
     }
@@ -79,13 +79,7 @@ public class MainActivityFragment extends Fragment {
 
         List<String> listMovies = new ArrayList<>(Arrays.asList(listOfMovies));
 
-        mMoviesAdapter = new ArrayAdapter<String>(
-                getContext(),
-                R.layout.list_best_movie,
-                R.id.list_best_movie_textview,
-                listMovies
-                //new ArrayList<String>()
-        );
+        mMoviesAdapter = new MovieAdapter(getContext(), new ArrayList<Movie>());
 
         ListView listView = (ListView) rootView.findViewById(R.id.list_best_movie);
         listView.setAdapter(mMoviesAdapter);
